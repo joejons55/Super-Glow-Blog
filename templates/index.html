@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+{% block content %}
+    <a href="/users" role="button">
+      <img class="img-index"  src="/static/profile_pics/neon-batman.png" alt="">
+    </a>
+    <p class="click">Click Here</p>
+    {% if session.logged_in %}
+    <h5 class="welcome">Welcome, {{session['username'] }}</h5>
+    {% endif %}
+    <nav class="topnav">
+      {% if session.logged_in %}
+      <a class="btn" href="/logout">Logout</a>
+    {% else %}
+      <a class="btn" href="/login">Login</a>
+      <a class="btn" href="/register">Sign up</a>
+    {% endif %}
+    </nav>
+    
+  <div class="wrapper">    
+    <h2 class="posts-heading"> Recent Posts</h2>
+    <div class="blog-container">
+    {% for post in posts%}
+    <div class="posts-title-content">
+      <img class="dc-logo" src="/static/profile_pics/dc.svg" alt="dc-logo">
+      <h4 class="index-title">{{post.title}}</h4>
+      <p class="index-content">{{post.content}}</p>
+      {% if post.tags %}
+      <div>
+        <span class="tags">Tags:</span>
+        {% for tag in post.tags %} 
+          <span class="tags-name">{{tag.name}}</span>
+        {% endfor %}
+      </div>
+      {% endif %}
+      <div class="post-title-footer">
+        <span class="full-name">By {{post.user.get_full_name}}</span>
+        <span class="time">{{post.simple_post_time}}</span>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+  </div>
+  </div>
+{% endblock %}
