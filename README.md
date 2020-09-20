@@ -17,3 +17,6 @@ WireFrame:
 ![text](project_photos/Blog-5.png)
 ![text](project_photos/Blog-6.png)
 ![text](project_photos/Blog-7.png)
+
+ERD: 
+![text](project_photos/Screen Shot 2020-09-20 at 1.59.59 PM.png)
