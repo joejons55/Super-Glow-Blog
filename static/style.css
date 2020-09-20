@@ -1,0 +1,670 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  list-style: none;
+}
+
+
+/* Base Page */
+
+
+body {
+  font-family: 'Exo 2', sans-serif;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  background-image: linear-gradient(rgba(0, 0, 0, .5), rgba(0, 0, 0, .5)), url("/static/profile_pics/dc_logo.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.logo { 
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  font-size: 2.5rem;
+  font-weight: 200;
+  color: #fff;
+  padding: 2rem 3rem 2rem;
+  border: 0.2rem solid #fff;
+  border-radius: 1rem;
+  text-transform: uppercase;
+  animation: flicker 5s infinite alternate;     
+}
+
+
+.logo h1::-moz-selection {
+  background-color: var(--neon-border-color);
+  color: var(--neon-text-color);
+}
+
+.logo h1::selection {
+  background-color: var(--neon-border-color);
+  color: var(--neon-text-color);
+}
+
+.logo h1:focus {
+  outline: none;
+}
+
+/* Animate neon flicker */
+@keyframes flicker {
+    
+  0%, 19%, 21%, 23%, 25%, 54%, 56%, 58%, 75%, 100% {
+    
+      text-shadow:
+          -0.2rem -0.2rem 1rem #fff,
+          0.2rem 0.2rem 1rem #fff,
+          0 0 2rem var(--neon-text-color),
+          0 0 4rem var(--neon-text-color),
+          0 0 6rem var(--neon-text-color),
+          0 0 8rem var(--neon-text-color),
+          0 0 10rem var(--neon-text-color);
+      
+      box-shadow:
+          0 0 .5rem #fff,
+          inset 0 0 .5rem #fff,
+          0 0 1rem var(--neon-border-color),
+          inset 0 0 1rem var(--neon-border-color),
+          0 0 1rem var(--neon-border-color),
+          inset 0 0 1rem var(--neon-border-color);        
+  }
+  
+  20%, 24%, 55% {        
+      text-shadow: none;
+      box-shadow: none;
+  }    
+}
+
+.topnav {
+  display: flex;
+  justify-content: space-evenly;
+  font-size: 2rem;
+  color: white;
+}
+
+.btn {
+  color: black;
+  text-transform: uppercase;
+  padding: 8px 45px;
+  background: rgba(255, 255, 255, 0.8);
+  font-size: 1rem;
+  font-weight: bold;
+  margin: 1rem 0;
+  border-radius: .3rem;
+  outline: none;
+}
+
+
+
+/* Index Page */
+
+.img-index {
+  justify-items: center;
+  margin-top: 1rem;
+  height: 100px;
+  width: 100px;
+  border-radius: 50%;
+}
+
+.click {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  font-size: 10px;
+  margin-top: -15px;
+  color: lightpink;
+}
+
+.user-list {
+  margin-top: .5rem;
+  display: block;
+  color: aliceblue;
+  font-size: 1.2rem;
+  text-align: center;
+  letter-spacing: 1.2px;
+}
+
+.welcome {
+  margin-top: 1rem;
+  --interval: 1s;
+  font-size: 2rem;
+  text-align: center;
+  text-shadow: 
+    0 0 20px var(--color2),
+    0 0 40px var(--color3),
+    0 0 80px var(--color4);
+  will-change: filter, color;
+  filter: saturate(60%);
+  animation: flicker2 steps(100) var(--interval) 1s infinite;
+}
+
+.welcome {
+  color: lightpink;
+  --color2: rgb(139, 15, 92);
+  --color3: rgb(211, 43, 226);
+  --color4: magenta;
+  font-weight: lighter;
+}
+
+@keyframes flicker2 {
+  50% {
+    color: white;
+    filter: saturate(200%) hue-rotate(20deg);
+  }
+}
+
+.posts-heading {
+  color: #fff;
+  text-shadow:
+    0 0 5px #fff,
+    0 0 10px #fff,
+    0 0 20px #fff,
+    0 0 40px #0ff,
+    0 0 80px #0ff,
+    0 0 90px #0ff,
+    0 0 100px #0ff,
+    0 0 150px #0ff;
+    font-weight: 400;
+    text-transform: uppercase;
+  margin: .5rem 0;
+}
+
+.wrapper {
+  height: 45rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.blog-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 100%;
+  overflow-y: scroll;
+}
+
+.posts-title-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: .5rem;
+  margin-top: 20px;
+  margin-right: 20px;
+  text-align: center;
+  width: 20rem;
+  height: 10rem;
+  position: relative;
+}
+
+.index-content {
+  font-size: 1.1rem;
+}
+
+p {
+    margin: 1 auto;
+    padding-bottom: .125rem;
+    width: 100%;
+  }
+
+.index-title {
+    color: black;
+    text-transform: uppercase;
+    font-weight: 100;
+    font-size: x-large;
+    font-weight: bold;
+}
+
+.dc-logo {
+  width: 3rem;
+  height: 3rem;
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  background: rgba(255, 255, 255, 1);
+  z-index: 90;
+  padding: 10px;
+  border-radius: 1.5rem;
+}
+
+:root {  
+    --neon-text-color: rgb(255, 122, 250);
+    --neon-border-color: rgb(126, 252, 254);
+  }
+
+.tags {
+  font-size: 1rem;
+  text-decoration: underline;
+  font-style: italic;
+}
+  
+.tags-name {
+  font-size: .5rem;
+  background: blue;
+  padding: 5px 10px;
+  color: aliceblue;
+  border-radius: 1rem;
+  letter-spacing: 1px;
+  font-style: italic;
+}
+
+.post-title-footer {
+  border-top: 1px solid black;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 2rem;
+  font-size: .7rem;
+}
+
+  /* Login */
+
+.login-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: black;
+  position: absolute;
+  top: 55%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(255, 255, 255, 0.8);
+  width: 25rem;
+  height: 20rem;
+  border-radius: .5rem;
+}
+
+#username, #password, #confirm {
+  border: 1px solid black;
+  background: none;
+  border-radius: .3rem;
+  padding: .2rem 0 .2rem .2rem;
+  outline: none;
+}
+
+.username-input, .password-input {
+  display: flex;
+  flex-direction: column;
+  margin: .5rem 0;
+  width: 80%;
+}
+
+.check-box {
+  font-size: .8rem;
+}
+
+input[type='checkbox'] {
+  width: .7rem;
+  height: .7rem;
+}
+
+#submit {
+  margin: 1rem 0 0 0;
+  padding: .3rem 5.5rem;
+  background: rgba(19, 190, 212, 0.705);
+  color: white;
+  border: none;
+  border-radius: .3rem;
+  letter-spacing: 1.3px;
+  font-size: 1rem;
+  text-transform: capitalize;
+  transition: all .2s ease-in-out;
+}
+
+#submit:hover, #submit:active {
+  transform: translateY(15%);
+}
+
+
+.post-form {
+  padding: 2rem 0;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.login-register a {
+  text-decoration: underline;
+}
+
+.login-register a:visited {
+  color: black;
+}
+
+
+/* Register */
+
+.register-container {
+  height: 25rem;
+}
+
+.msgs {
+  font-size: 1rem;
+  text-align: center;
+  color: #fff;
+  text-shadow:
+    0 0 5px #fff,
+    0 0 10px rgb(245, 24, 43),
+    0 0 20px rgb(245, 24, 43),
+    0 0 40px rgb(245, 24, 43),
+    0 0 80px rgb(245, 24, 43),
+    0 0 90px rgb(245, 24, 43),
+    0 0 100px rgb(245, 24, 43),
+    0 0 150px rgb(245, 24, 43);
+    font-weight: 400;
+    text-transform: uppercase;
+  margin: 2rem 0;
+}
+
+.errors {
+  font-size: .5rem;
+  color: #fff;
+  text-shadow:
+  0 0 5px #fff,
+  0 0 10px rgb(245, 24, 43),
+  0 0 20px rgb(245, 24, 43),
+  0 0 40px rgb(245, 24, 43),
+  0 0 80px rgb(245, 24, 43),
+  0 0 90px rgb(245, 24, 43),
+  0 0 100px rgb(245, 24, 43),
+  0 0 150px rgb(245, 24, 43);
+    font-weight: 300;
+    text-transform: uppercase;
+  margin: .1rem 0;
+}
+
+/* Error */
+
+.err {
+  font-size: 1.5rem;
+  text-align: center;
+  color: #fff;
+  text-shadow:
+    0 0 5px #fff,
+    0 0 10px rgb(245, 24, 43),
+    0 0 20px rgb(245, 24, 43),
+    0 0 40px rgb(245, 24, 43),
+    0 0 80px rgb(245, 24, 43),
+    0 0 90px rgb(245, 24, 43),
+    0 0 100px rgb(245, 24, 43),
+    0 0 150px rgb(245, 24, 43);
+    font-weight: 400;
+    text-transform: uppercase;
+  margin: 2rem 0;
+}
+
+/* User Add Page */
+
+.add-user-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: black;
+  position: absolute;
+  top: 55%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(255, 255, 255, 0.8);
+  width: 25rem;
+  height: 15rem;
+  border-radius: .5rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  margin: .5rem 0;
+  width: 100%;
+}
+
+.submit-button, .cancel, .save, .add, .edit {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  flex-direction: row;
+  margin: 1rem 0 0 0;
+  padding: .3rem 5.5rem;
+  background: rgba(19, 190, 212, 0.705);
+  color: white;
+  border: none;
+  border-radius: .3rem;
+  letter-spacing: 1.3px;
+  font-size: 1rem;
+  text-transform: capitalize;
+  transition: all .2s ease-in-out;
+}
+
+.cancel {
+  background-color: rgba(202, 18, 177, 0.705);
+}
+
+.submit-button:hover, .submit-button:active {
+  transform: translateY(15%);
+}
+
+/* User Edit Page */
+
+.user-edit-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: black;
+  position: absolute;
+  top: 55%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(255, 255, 255, 0.8);
+  width: 25rem;
+  height: 15rem;
+  border-radius: .5rem;
+}
+
+
+
+/* User List Page */
+
+.user-list-page {
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+.users-list-title {
+  color: #fff;
+  text-shadow:
+    0 0 5px #fff,
+    0 0 10px #fff,
+    0 0 20px #fff,
+    0 0 40px #0ff,
+    0 0 80px #0ff,
+    0 0 90px #0ff,
+    0 0 100px #0ff,
+    0 0 150px #0ff;
+    font-weight: 400;
+    text-transform: uppercase;
+  margin: .5rem 0;
+  text-align: center;
+}
+
+.add-user {
+  margin: .5rem 0 1rem 0;
+  padding: .3rem 5rem;
+  background: rgba(19, 190, 212, 0.705);
+  color: white;
+  border: none;
+  border-radius: .3rem;
+  letter-spacing: 1.3px;
+  font-size: 1rem;
+  text-transform: capitalize;
+  transition: all .2s ease-in-out;
+}
+
+.all-users a:visited {
+  color: rgba(202, 18, 177, 0.705);
+}
+
+
+
+/* User Detail Page */
+
+.user-container {
+
+}
+
+.edit {
+
+}
+
+.add-post-btn {
+
+}
+
+.user-list-btn {
+
+}
+
+.tags-page-btn {
+
+}
+
+/* TAGS Create Page */
+
+.create-tag-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: black;
+  position: absolute;
+  top: 55%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(255, 255, 255, 0.8);
+  width: 25rem;
+  height: 15rem;
+  border-radius: .5rem;
+}
+
+
+.form-check {
+  
+}
+
+
+
+/* TAGS Edit Page */
+
+/* TAGS Lis Page */
+
+.back {
+
+}
+
+/* TAGS Show Page */
+
+.delete {
+
+}
+
+/* POST Add Page */
+ .add-post-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: black;
+  position: absolute;
+  top: 55%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(255, 255, 255, 0.8);
+  width: 25rem;
+  height: 20rem;
+  border-radius: .5rem;
+ }
+
+ .form-group-text {
+  display: flex;
+  flex-direction: column;
+  margin: .5rem 0;
+  width: 100%;
+ }
+
+ /* POST Edit Page */
+ .edit-post-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: black;
+  position: absolute;
+  top: 55%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(255, 255, 255, 0.8);
+  width: 25rem;
+  height: 20rem;
+  border-radius: .5rem;
+ }
+
+ .form-check {
+
+ }
+
+ /* Textarea */
+
+ textarea {
+   resize: none;
+ }
+
+ /* Media query */
+
+ @media screen and (min-width: 768px) {
+  .logo {
+    font-size: 3rem;
+  }
+  .login-container {
+    width: 35rem;
+  }
+  .check-box {
+    font-size: 1rem;
+  }
+  input[type='checkbox'] {
+    width: 1rem;
+    height: 1rem;
+  }
+  .username-input, .password-input {
+    font-size: 1.2rem;
+  }
+  .msgs {
+    font-size: 1.5rem;
+  }
+  .add-user-container, .user-edit-container, .create-tag-container, .post-container {
+    width: 30rem;
+    height: 18rem;
+  }
+  .add-post-container, .edit-post-container {
+    width: 30rem;
+    height: 21rem;
+  }
+}
