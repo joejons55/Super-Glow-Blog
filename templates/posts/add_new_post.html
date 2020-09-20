@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block content %}
+  <div class="add-post-container">
+    <form method="POST">
+    <h2>Add Post for {{user.get_full_name}}</h2>
+      <div class="form-group">
+        <label for="postTitleInput">Title</label>
+        <input type="text" class="form-control" id="postTitleInput" name="postTitle" placeholder="Enter Post Title" required>
+      </div>
+      <div class="form-group-text">
+        <label for="postContentInput">Content</label>
+        <textarea type="textarea" rows="5" class="form-control" id="postContentInput" name="postContent" placeholder="Enter Post Content" required></textarea>
+      </div>
+      {% for tag in tags %}
+      <div class="form-check-small">
+        <input class="check-box" type="checkbox" value="{{tag.id}}" name="tags" id="{{tag.id}}">
+        <label class="check-box" for="{{tag.id}}">
+          {{tag.name}}
+        </label>
+      </div>
+      {% endfor %}
+      <button type="submit" class="add">Add</button>
+      <a class="cancel" href='/users/{{user.id}}' role="button">Cancel</a>
+    </form>
+  </div>
+{% endblock %}
