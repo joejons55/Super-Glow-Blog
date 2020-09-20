@@ -1,0 +1,24 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Blog</title>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+  <div class='container'>
+    <h1> <a class="logo" href="/">Super Glow Blog</a></h1>
+    <section class="messages-text">
+      {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+         {% for category, message in messages %}
+            <p class="msgs {{ category }}">{{message}}</p>
+           {% endfor %}
+        {% endif %}
+      {% endwith %}
+    </section>
+    {% block content %} 
+    {% endblock %}
+  </div>
+</body>
+</html>
