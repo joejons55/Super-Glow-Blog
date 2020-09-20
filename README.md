@@ -6,3 +6,10 @@ This is superhero/valliance Blog where you can find cool blogs from your favorit
 
 WireFrame:
 
+![text](project_photos/Blog-1.png)
+![text](project_photos/Blog-2.png)
+![text](project_photos/Blog-3.png)
+![text](project_photos/Blog-4.png)
+![text](project_photos/Blog-5.png)
+![text](project_photos/Blog-6.png)
+![text](project_photos/Blog-7.png)
