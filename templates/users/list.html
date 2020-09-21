@@ -4,11 +4,11 @@
   <h4 class="users-list-title">Your Secret Identities</h4>
   <a class="add-user" href="/users/new" role="button">Add User</a>
   <div class="all-users">
-    {% for user in users%}
-    <ul>
-      <li><a href="/users/{{user.id}}">{{user.get_full_name}}</li></a>
+    <ul class="user-items">
+      {% for user in users%}
+      <li class="user-item"><a href="/users/{{user.id}}">{{user.get_full_name}}</li></a>
+      {% endfor %}  
     </ul>
-    {% endfor %}  
    </div>
 </div>
 {% endblock %}

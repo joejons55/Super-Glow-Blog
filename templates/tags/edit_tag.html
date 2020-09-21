@@ -1,23 +1,24 @@
 {% extends "base.html" %}
 {% block content %}
-<h2>Edit Tag</h2>
-<form method="POST">
-  <div class="form-group">
-    <label for="tagNameInput">Name</label>
-    <input type="text" class="form-control" id="tag-name-input" name="tagName" value={{tag.name}} placeholder="Enter tag name" required>
-  </div>
-  <div class="form-check">
-    {% for post in posts %}
-    <div>
-      <input class="form-check-input" type="checkbox" value="{{ post.id }}" id="post_{{ post.id }}"
-      {% if post in tag.posts %} checked {% endif %}
-      name="posts">
-      <label class="form-check-label" for ="post_{{ post.id }}">{{ post.title }}</label>
+<div class="tags-container">
+  <h2>Edit Tag</h2>
+  <form method="POST">
+    <div class="form-group">
+      <label for="tagNameInput">Name</label>
+      <input type="text" class="form-control" id="tag-name-input" name="tagName" value={{tag.name}} placeholder="Enter tag name" required>
     </div>
-    {% endfor %}
-  </div>
-
-  <a class="cancel" href="/tags/{{tag.id}}" role="button">Cancel</a>
-  <button type="submit" class="edit">Edit</button>
-</form>
+    <div class="form-check">
+      {% for post in posts %}
+      <div>
+        <input class="form-check-input" type="checkbox" value="{{ post.id }}" id="post_{{ post.id }}"
+        {% if post in tag.posts %} checked {% endif %}
+        name="posts">
+        <label class="form-check-label" for ="post_{{ post.id }}">{{ post.title }}</label>
+      </div>
+      {% endfor %}
+    </div>
+    <a class="cancel" href="/tags/{{tag.id}}" role="button">Cancel</a>
+    <button type="submit" class="edit">Edit</button>
+  </form>
+</div>
 {% endblock %}

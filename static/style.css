@@ -27,6 +27,11 @@ body {
   background-position: center;
 }
 
+.container h1 {
+  width: 100%;
+  text-align: center;
+}
+
 .logo { 
   display: flex;
   flex-direction: column;
@@ -42,17 +47,17 @@ body {
 }
 
 
-.logo h1::-moz-selection {
+.logo::-moz-selection {
   background-color: var(--neon-border-color);
   color: var(--neon-text-color);
 }
 
-.logo h1::selection {
+.logo::selection {
   background-color: var(--neon-border-color);
   color: var(--neon-text-color);
 }
 
-.logo h1:focus {
+.logo:focus {
   outline: none;
 }
 
@@ -435,11 +440,16 @@ input[type='checkbox'] {
   width: 100%;
 }
 
-.submit-button, .cancel, .save, .add, .edit {
+.form-control {
+  border: none;
+  padding: .4rem 0 0 .3rem;
+  border-radius: .3rem;
+}
+
+.submit-button, .cancel, .save, .add, .edit, .back, .user-btn, .tags-btn, .delete {
   display: flex;
   width: 100%;
   justify-content: center;
-  flex-direction: row;
   margin: 1rem 0 0 0;
   padding: .3rem 5.5rem;
   background: rgba(19, 190, 212, 0.705);
@@ -452,8 +462,12 @@ input[type='checkbox'] {
   transition: all .2s ease-in-out;
 }
 
-.cancel {
+.cancel, .back {
   background-color: rgba(202, 18, 177, 0.705);
+}
+
+.delete {
+  background-color: rgba(202, 18, 43, 0.705);
 }
 
 .submit-button:hover, .submit-button:active {
@@ -482,14 +496,14 @@ input[type='checkbox'] {
 
 /* User List Page */
 
-.user-list-page {
+.user-list-page, .tags-itmes-container, .show-tag-container {
   margin-top: 1rem;
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly;
+  align-items: center;
 }
 
-.users-list-title {
+.users-list-title, .tags-title {
   color: #fff;
   text-shadow:
     0 0 5px #fff,
@@ -519,33 +533,132 @@ input[type='checkbox'] {
   transition: all .2s ease-in-out;
 }
 
-.all-users a:visited {
-  color: rgba(202, 18, 177, 0.705);
+.add {
+  margin: 0 auto;
+}
+
+.user-items, 
+.tags-items, 
+.user-detail-items, 
+.show-tag-items {
+  display: flex;
+  flex-direction: column;
+  width: 90vw;
+  max-width: 650px;
+  background: rgba(255, 255, 255, 0.7);
+  height: 35rem;
+  border-radius: .5rem;
+  overflow-y: scroll;
+}
+
+.user-item, 
+.tags-item, 
+.user-detail-item, 
+.show-tag-item {
+  height: 3rem;
+  background: rgba(0, 0, 0, .5);
+  position: relative;
+  line-height: 3rem;
+  
+}
+
+.user-item::after, 
+.tags-item::after, 
+.user-detail-item::after, 
+.show-tag-item::after  {
+  content: '';
+  position: absolute;
+  left: 50%;
+  bottom: 10%;
+  width: 90%;
+  height: .05rem;
+  background: white;
+  transform: translateX(-50%);
+  z-index: 100;
+}
+
+.user-item:nth-child(1), 
+.tags-item:nth-child(1) {
+  border-top-left-radius: .5rem;
+  border-top-right-radius: .5rem;
 }
 
 
+.user-item a, 
+.tags-item a, 
+.user-detail-item a {
+  display: inline-block;
+  font-size: 1.5rem;
+  text-align: center;
+  width: 100%;
+  height: 100%;
+  color: white;
+}
 
 /* User Detail Page */
 
 .user-container {
-
+ margin-top: 2rem;
+ color: black;
+ background: rgba(255, 255, 255, 0.8);
+ width: 90vw;
+ max-width: 600px;
+ height: 43rem;
+ font-size: 1.5rem;
+ border-radius: .5rem;
 }
 
-.edit {
-
+.user-container-heading {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-.add-post-btn {
+.user-container h4, h3 {
+  letter-spacing: 1.2px;
+ }
 
+.user-container .btn-container {
+  margin: 0;
 }
 
-.user-list-btn {
-
+.post-detail-title {
+  color: rgb(0, 0, 0);
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  margin: .5rem 0;
+  text-align: center;
 }
 
-.tags-page-btn {
-
+.user-detail-btn-container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 1rem;
 }
+
+.user-detail-items {
+  margin-top: .5rem;
+  height: 28rem;
+  width: 100%;
+  border-radius: 0;
+  overflow-y: scroll;
+} 
+
+.user-btn-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  column-gap: .5rem;
+  width: 90%;
+  height: 2rem;
+  max-width: 450px;
+  margin: 1rem 0 0 0;
+}
+
+
+
 
 /* TAGS Create Page */
 
@@ -566,24 +679,117 @@ input[type='checkbox'] {
 }
 
 
-.form-check {
-  
-}
-
 
 
 /* TAGS Edit Page */
 
-/* TAGS Lis Page */
-
-.back {
-
+.tags-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: black;
+  position: absolute;
+  top: 55%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(255, 255, 255, 0.8);
+  width: 25rem;
+  height: 15rem;
+  border-radius: .5rem;
 }
 
+.btn-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: .5rem;
+  width: 90%;
+  height: 2rem;
+  max-width: 450px;
+  margin: 1rem 0 0 0;
+}
+
+.btn-container .add,
+.btn-container .back, 
+.user-btn-container .user-btn,
+.user-btn-container .tags-btn, 
+.user-btn-container .add {
+  padding: 0;
+  margin: 0;
+  height: 100%;
+  display: grid;
+  place-items: center;
+}
+
+/* TAGS Lis Page */
+
+
+
 /* TAGS Show Page */
+.show-tag-container {
+  color: white;
+}
 
-.delete {
+.show-tag-container h2 {
+  text-shadow:
+    0 0 5px #fff,
+    0 0 10px #fff,
+    0 0 20px #fff,
+    0 0 40px #0ff,
+    0 0 80px #0ff,
+    0 0 90px #0ff,
+    0 0 100px #0ff,
+    0 0 150px #0ff;
+    font-weight: 400;
+    text-transform: uppercase;
+  margin: .5rem 0;
+  text-align: center;
+}
 
+.show-tag-items a {
+  display: inline-block;
+  font-size: 1.5rem;
+  text-align: center;
+  color: white;
+}
+
+/* POST Show Page */
+
+.post-show-container {
+  background: rgba(255, 255, 255, 0.8);
+  width: 90vw;
+  max-width: 600px;
+  height: 20rem;
+  display: grid;
+  place-items: center;
+  margin-top: 4rem;
+  border-radius: .5rem;
+}
+
+.body-container {
+  width: 80%;
+  height: 10rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.body-container p {
+  margin: .5rem 0;
+  width: auto;
+}
+
+.post-btn-container {
+  margin-bottom: 1rem;
+  width: 80%;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(3, 1fr);
+}
+
+.post-btn-container button {
+  padding: .5rem 0;
 }
 
 /* POST Add Page */
@@ -627,10 +833,6 @@ input[type='checkbox'] {
   border-radius: .5rem;
  }
 
- .form-check {
-
- }
-
  /* Textarea */
 
  textarea {
@@ -666,5 +868,10 @@ input[type='checkbox'] {
   .add-post-container, .edit-post-container {
     width: 30rem;
     height: 21rem;
+  }
+  .post-btn-container {
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: 1fr;
+    column-gap: .5rem;
   }
 }

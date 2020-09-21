@@ -1,26 +1,30 @@
 {% extends "base.html" %}
 {% block content %}
-<h1>{{post.title}}</h1>
-<p>{{post.content}}</p>
-<p class="post-container">By
-  <span>{{user.get_full_name}} on</span>
-  <span class="small">{{post.simple_post_time}}</span>
-</p>
-<p>
-  <span class="small-tag">Tags:</span>
-  {% for tag in post.tags %} 
-  <span class="tag-name">{{tag.name}}</span>
-  {% endfor %}
-</p>
-<form>
-  <button class="cancel"
-    formmethod="GET" 
-    formaction="/users/{{user.id}}" >Cancel</button>
-  <button class="edit" 
-    formmethod="GET"
-    formaction="/posts/{{post.id}}/edit" >Edit</button>
-  <button class="delete" 
-    formmethod="POST"
-    formaction="/posts/{{post.id}}/delete">Delete</button>
-</form>
+<div class="post-show-container">
+  <div class="body-container">
+    <h1>{{post.title}}</h1>
+    <p>{{post.content}}</p>
+    <p class="post-info-container">By
+      <span>{{user.get_full_name}} on</span>
+      <span class="small">{{post.simple_post_time}}</span>
+    </p>
+    <p>
+      <span class="small-tag">Tags:</span>
+      {% for tag in post.tags %} 
+      <span class="tags-name">{{tag.name}}</span>
+      {% endfor %}
+    </p>
+  </div>
+  <form class="post-btn-container">
+    <button class="cancel"
+      formmethod="GET" 
+      formaction="/users/{{user.id}}" >Cancel</button>
+    <button class="edit" 
+      formmethod="GET"
+      formaction="/posts/{{post.id}}/edit" >Edit</button>
+    <button class="delete" 
+      formmethod="POST"
+      formaction="/posts/{{post.id}}/delete">Delete</button>
+  </form>
+</div>
 {% endblock %}

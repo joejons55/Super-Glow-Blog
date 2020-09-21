@@ -1,24 +1,26 @@
 {% extends "base.html" %}
 {% block content %}
-  <h4>User Detail</h4>
-  <div class="user-container">
-        <h3 class="user-name">{{user.get_full_name}}</h3>
-        <div class="edit-delete">
-          <div>
-            <a class="edit" href="/users/{{user.id}}/edit">Edit</a>
-            <a class="delete" href="/users/{{user.id}}/delete">Delete</a>
-          </div>
+<div class="user-container">
+  <div class="user-container-heading">
+    <h4>User Detail</h4>
+      <h3 class="user-name">{{user.get_full_name}}</h3>
+        <div class="btn-container">
+          <a class="edit" href="/users/{{user.id}}/edit">Edit</a>
+          <a class="delete" href="/users/{{user.id}}/delete">Delete</a>
         </div>
-        <div>
-          <h5 class="post-detail-title">Posts</h5>
-          <ul>
-            {% for post in user_posts %}
-              <li><a href="/posts/{{post.id}}">{{post.title}}</a></li>
-            {% endfor %}
-          </ul>
-          <a class="add-post-btn" href="/users/{{user.id}}/posts/new">Add Post</a>
-          <a class="user-list-btn" href="/users" role="button">User List</a>
-          <a class="tags-page-btn" href="/tags" role="button">Tags</a>
-        </div>
+  </div>
+    <div class="user-detail-btn-container">
+      <h5 class="post-detail-title">Posts</h5>
+      <ul class="user-detail-items">
+        {% for post in user_posts %}
+          <li class="user-detail-item"><a href="/posts/{{post.id}}">{{post.title}}</a></li>
+        {% endfor %}
+      </ul>
+      <div class="user-btn-container">
+        <a class="add" href="/users/{{user.id}}/posts/new">Add Post</a>
+        <a class="user-btn" href="/users" role="button">User List</a>
+        <a class="tags-btn" href="/tags" role="button">Tags</a>
+      </div>
+    </div>
   </div>
 {% endblock %}
