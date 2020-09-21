@@ -20,3 +20,9 @@ WireFrame:
 
 ERD: 
 ![text](project_photos/ERD.png)
+
+Future Goals:
+1. Create functionality for users to write comments, edit them and delete.
+2. Create functionality to delete account. 
+3. Create functionality for users to share their posts.
+4. Create functionality for users to attach images to their posts.
