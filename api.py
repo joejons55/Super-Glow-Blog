@@ -232,7 +232,6 @@ def login():
         if author and author.check_password(password=form.password.data):
             session['logged_in'] = True
             session['username'] = author.username
-            print("+++++++++++++++++", author.id)
             session['id'] = author.id
             login_user(author)
             return redirect("/users")
@@ -263,11 +262,9 @@ def signup():
             author.set_password(form.password.data)
             session['logged_in'] = True
             session['username'] = author.username
-            print("+++++++++++++++++", author.id)
             db.session.add(author)
             db.session.commit()  # Create new user
             session['id'] = author.id
-            print("+++++++++++++++++", author.id)
             login_user(author)  # Log in as newly created user
             return redirect(url_for('index'))
         flash('A user already exists with that username.')
