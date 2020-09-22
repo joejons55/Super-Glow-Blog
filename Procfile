@@ -1,1 +1,2 @@
-web: gunicorn api:app --log-file=-
+web: gunicorn models:app
+worker: python -u models.py run_worker
