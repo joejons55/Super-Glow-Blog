@@ -42,7 +42,7 @@ def add_new_user():
   db.session.add(user)
   db.session.commit()
 
-  flash(f"User: '{user.get_full_name}' successfully added.", 'success')
+  flash(f'User: {user.get_full_name} successfully added.', 'success')
 
   return redirect("/users")
 
@@ -66,7 +66,7 @@ def delete_user(user_id):
   db.session.delete(user)
   db.session.commit()
 
-  flash(f"User: '{user.get_full_name}' successfully deleted.", 'success')
+  flash(f'User: {user.get_full_name} successfully deleted.', 'success')
 
   return redirect('/users')
 
