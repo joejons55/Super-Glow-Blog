@@ -25,7 +25,6 @@ def index():
 def list_users():
   # List all users
   users = User.query.filter_by(author_id = session['id']).all()
-  print("+++++++++++++", users)
   return render_template("users/list.html", users=users)
 
 @app.route('/users/new')
@@ -274,3 +273,6 @@ def signup():
         form=form,
         body="Please Sign Up!"
     )
+
+    if __name__ == "__main__":
+    app.run()'''
