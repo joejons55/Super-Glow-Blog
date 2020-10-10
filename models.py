@@ -7,7 +7,7 @@ import os
 from flask_fontawesome import FontAwesome
 
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql:///flasql'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'postgres://xbhpsrrwtmoglp:8563e26d79dd14521a37a916b2904114d4caa4bd64bfb639bfdb38b920fb22a7@ec2-54-161-58-21.compute-1.amazonaws.com:5432/d8i0oe6qil0tt6'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['SQLALCHEMY_ECHO'] = True
 
